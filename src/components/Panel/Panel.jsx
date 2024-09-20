@@ -5,13 +5,15 @@ const Panel = ({ children}) => {
   return (
     <Box
       sx={{
-        display: 'flex',
+        display: 'grid',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: '10px',
+        borderRadius: '8px',
         border: '2px solid #ccc',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        paddingTop: '0.2rem',
+        paddingBottom: '0.2rem',
         backgroundColor: 'rgba(10, 10, 10, 1)',
+        aspectRatio: 1,
       }}
     >
       {children}

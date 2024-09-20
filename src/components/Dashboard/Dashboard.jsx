@@ -42,14 +42,14 @@ const Dashboard = () => {
             </Container>
           </Panel>
         </Grid2>
-        <Grid2 size={6}>
+        {/* <Grid2 size={6}>
           <Panel>
             <Container>
               <Compass rotation={orientation.alpha}/>
               <Typography>{(orientation.alpha ?? 0).toFixed(1)} °</Typography>
             </Container>
           </Panel>
-        </Grid2>
+        </Grid2> */}
       </Grid2>
 
       {!permissionGranted && (
