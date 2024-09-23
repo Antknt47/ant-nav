@@ -1,0 +1,11 @@
+.Speedometer {
+  
+}
+
+/* 定义 .tick 的样式 */
+.tick {
+    stroke: rgba(255, 255, 255, 0.4);       /* 刻度线颜色 */
+    stroke-width: 1px;   /* 刻度线宽度 */
+    stroke-linecap: round; /* 刻度线端点为圆形 */
+  }
+  

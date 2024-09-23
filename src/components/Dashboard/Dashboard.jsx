@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Typography, Container, Grid2 } from '@mui/material';
 
 import useDeviceOrientation from '../../hooks/useDeviceOrientation';
+import useGeolocation from '../../hooks/useGeolocation';
 
 import PermissionModal from '../PermissionModal';
 import Compass from '../Compass';
 import Panel from '../Panel';
+import Speedometer from '../Speedometer/Speedometer';
 
 const Dashboard = () => {
   const { orientation, requestPermission, permissionGranted } = useDeviceOrientation();
+  const { geo } = useGeolocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -54,14 +57,14 @@ const Dashboard = () => {
             </Container>
           </Panel>
         </Grid2>
-        {/* <Grid2 size={6}>
+        <Grid2 size={6}>
           <Panel>
             <Container>
-              <Compass rotation={orientation.alpha}/>
-              <Typography>{(orientation.alpha ?? 0).toFixed(1)} °</Typography>
+              <Speedometer speed={geo ? (geo.speed ?? 0).toFixed(1) : 0}/>
+              <Typography>{geo ? (geo.speed ?? 0).toFixed(1) : 0} km/h</Typography>
             </Container>
           </Panel>
-        </Grid2> */}
+        </Grid2>
       </Grid2>
 
       {!permissionGranted && (

@@ -6,14 +6,14 @@ const useGeolocation = (options = {
    maximumAge: 0
 
   }) => {
-  const [position, setPosition] = useState(null);
+  const [geo, setGeo] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [watchId, setWatchId] = useState(null);
 
   useEffect(() => {
     const handleSuccess = (position) => {
-      setPosition({
+      setGeo({
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
         altitude: position.coords.altitude,
@@ -44,7 +44,7 @@ const useGeolocation = (options = {
     };
   }, [watchId, options]);
 
-  return { position, error, loading };
+  return { geo, error, loading };
 };
 
 export default useGeolocation;
