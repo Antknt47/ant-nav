@@ -61,7 +61,7 @@ const Dashboard = () => {
           <Panel>
             <Container>
               <Speedometer speed={geo ? (geo.speed ?? 0).toFixed(1) : 0}/>
-              <Typography>{geo ? (geo.speed ?? 0).toFixed(1) : 0} km/h</Typography>
+              <Typography>{geo?((geo.speed ?? 0)*3.6).toFixed(1) : 0} km/h</Typography>
             </Container>
           </Panel>
         </Grid2>
