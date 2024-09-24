@@ -1,17 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 
 const useGeolocation = (options = {
-   enableHighAccuracy: true,
-   timeout: 3000,
-   maximumAge: 0
-
-  }) => {
+  enableHighAccuracy: true,
+  timeout: 3000,
+  maximumAge: 0
+}) => {
   const [geo, setGeo] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [watchId, setWatchId] = useState(null);
+  const watchId = useRef(null); 
+
+  const memoizedOptions = useMemo(() => options, [options.enableHighAccuracy, options.timeout, options.maximumAge]);
 
   useEffect(() => {
+    if (!navigator.geolocation) {
+      setError('Geolocation is not supported by this browser.');
+      setLoading(false);
+      return;
+    }
+
     const handleSuccess = (position) => {
       setGeo({
         latitude: position.coords.latitude,
@@ -28,22 +35,14 @@ const useGeolocation = (options = {
       setLoading(false);
     };
 
-    if (navigator.geolocation) {
-      const geo = navigator.geolocation;
-      const id = geo.watchPosition(handleSuccess, handleError, options);
-      setWatchId(id);
-    } else {
-      setError('Geolocation is not supported by this browser.');
-      setLoading(false);
-    }
+    watchId.current = navigator.geolocation.watchPosition(handleSuccess, handleError, memoizedOptions);
 
     return () => {
-      if (navigator.geolocation && watchId !== null) {
-        navigator.geolocation.clearWatch(watchId);
+      if (watchId.current !== null) {
+        navigator.geolocation.clearWatch(watchId.current);
       }
     };
-  }, [watchId, options]);
-
+  }, [memoizedOptions]);
   return { geo, error, loading };
 };
 
