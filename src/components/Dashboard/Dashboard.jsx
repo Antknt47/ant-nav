@@ -8,10 +8,13 @@ import PermissionModal from '../PermissionModal';
 import Compass from '../Compass';
 import Panel from '../Panel';
 import Speedometer from '../Speedometer/Speedometer';
+import GMeter from '../GMeter';
+import useAccelerometer from '../../hooks/useAccelerometer';
 
 const Dashboard = () => {
   const { orientation, requestPermission, permissionGranted } = useDeviceOrientation();
   const { geo } = useGeolocation();
+  const { acceleration, gForce, error } = useAccelerometer();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -62,6 +65,14 @@ const Dashboard = () => {
             <Container>
               <Speedometer speed={geo ? (geo.speed ?? 0).toFixed(1) : 0}/>
               <Typography>{geo?((geo.speed ?? 0)*3.6).toFixed(1) : 0} km/h</Typography>
+            </Container>
+          </Panel>
+        </Grid2>
+        <Grid2 size={6}>
+          <Panel>
+            <Container>
+              <GMeter gForce={gForce??0}/>
+              <Typography>{(gForce??0).toFixed(1)} G</Typography>
             </Container>
           </Panel>
         </Grid2>
