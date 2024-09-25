@@ -6,9 +6,10 @@ const useDeviceOrientation = () => {
 
   const handleOrientation = (event) => {
     setOrientation({
-      alpha: event.webkitCompassHeading,
+      alpha: event.alpha,
       beta: event.beta,
       gamma: event.gamma,
+      compassHeading: event.webkitCompassHeading,
     });
   };
 

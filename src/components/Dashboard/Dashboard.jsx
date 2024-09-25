@@ -55,7 +55,7 @@ const Dashboard = () => {
         <Grid2 size={6}>
           <Panel>
             <Container>
-              <Compass rotation={orientation.alpha}/>
+              <Compass rotation={orientation.compassHeading}/>
               <Typography>{(orientation.alpha ?? 0).toFixed(1)} ° {getDirectionLetter(orientation.alpha ?? 0)}</Typography>
             </Container>
           </Panel>
