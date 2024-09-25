@@ -10,10 +10,9 @@ const Panel = ({ children}) => {
         alignItems: 'center',
         borderRadius: '8px',
         border: '2px solid #ccc',
-        paddingTop: '0.2rem',
-        paddingBottom: '0.2rem',
         backgroundColor: 'rgba(10, 10, 10, 1)',
         aspectRatio: 1,
+        overflow: 'hidden',
       }}
     >
       {children}
