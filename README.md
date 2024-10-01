@@ -1,5 +1,10 @@
 # Ant Nav
 
+## Demo
+A live demo of the project is deployed at:
+[https://labs.antknt47.com/ant-nav](https://labs.antknt47.com/ant-nav)
+![demo](demo.jpg "Demo")
+
 **Ant Nav** is a mobile-first web application designed to collect data from the device's inertial and magnetic sensors, as well as GPS. This project aims to provide a foundation for developing more advanced applications using this data.
 
 ## Features
@@ -11,10 +16,6 @@
 - **React**: Frontend framework used to build the user interface.
 - **Vite**: Development environment for fast and efficient builds.
 - **JavaScript (JS)**: Primary programming language.
-
-## Demo
-A live demo of the project is deployed at:
-[https://labs.antknt47.com/ant-nav](https://labs.antknt47.com/ant-nav)
 
 ## Installation and Setup
 To run this project locally, follow the steps below:
