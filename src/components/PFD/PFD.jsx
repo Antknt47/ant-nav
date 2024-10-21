@@ -3,7 +3,7 @@ import React from 'react';
 const PFD = ({ heading = 0, pitch = 0, roll = 0 }) => {
   const rotationStyle = {
     transformOrigin: `${100}px ${100}px`,
-    transform: `rotate(${-roll}deg)`, // 控制翻滚
+    transform: `rotate(${-roll}deg)`,
   };
 
   return (
@@ -13,7 +13,7 @@ const PFD = ({ heading = 0, pitch = 0, roll = 0 }) => {
       <g style={rotationStyle}>
         <rect 
           x="-50" 
-          y={pitch}  // 控制地面随俯仰移动
+          y={pitch}
           height="200" 
           width="300" 
           fill="rgb(255, 169, 77)" 

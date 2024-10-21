@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, Box, Typography, Button } from '@mui/material';
 
-// 设置模态框样式
+// Modal style
 const style = {
   position: 'absolute',
   top: '50%',

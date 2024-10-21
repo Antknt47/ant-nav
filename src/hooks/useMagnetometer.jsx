@@ -12,7 +12,6 @@ const useMagnetometer = () => {
 
   useEffect(() => {
     navigator.permissions.query({ name: "magnetometer" }).then((result) => {
-      // 检查设备是否支持 Magnetometer API
       if ('Magnetometer' in window) {
         alert("支持磁力计");
         setSupported(true);
@@ -22,14 +21,13 @@ const useMagnetometer = () => {
         const handleReading = () => {
           const { x, y, z } = magnetometer;
 
-          // 计算方位角
           const azimuth = Math.atan2(y, x) * (180 / Math.PI);
 
           setData({
             x,
             y,
             z,
-            azimuth: azimuth >= 0 ? azimuth : azimuth + 360 // 确保方位角为正值
+            azimuth: azimuth >= 0 ? azimuth : azimuth + 360
           });
         };
 
@@ -40,10 +38,8 @@ const useMagnetometer = () => {
         magnetometer.addEventListener('reading', handleReading);
         magnetometer.addEventListener('error', handleError);
 
-        // 启动 Magnetometer
         magnetometer.start();
 
-        // 清理工作
         return () => {
           magnetometer.stop();
           magnetometer.removeEventListener('reading', handleReading);
