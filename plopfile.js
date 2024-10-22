@@ -1,5 +1,4 @@
 export default function (plop) {
-  // 定义组件生成器
   plop.setGenerator('component', {
     description: 'Create a new React component',
     prompts: [
@@ -33,7 +32,6 @@ export default function (plop) {
     ],
   });
 
-  // 定义自定义 Hook 生成器
   plop.setGenerator('hook', {
     description: 'Create a new custom hook',
     prompts: [

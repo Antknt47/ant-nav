@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Container, Grid2 } from '@mui/material';
 
-import useDeviceOrientation from '../../hooks/useDeviceOrientation';
 import useGeolocation from '../../hooks/useGeolocation';
 
 import PermissionModal from '../PermissionModal';
@@ -10,22 +9,20 @@ import Panel from '../Panel';
 import Speedometer from '../Speedometer/Speedometer';
 import GMeter from '../GMeter';
 import useAccelerometer from '../../hooks/useAccelerometer';
+import useIMU from '../../hooks/useIMU';
 
 const Dashboard = () => {
-  const { orientation, requestPermission, permissionGranted } = useDeviceOrientation();
+  const { orientation, requestPermission, permissionGranted } = useIMU();
   const { geo } = useGeolocation();
-  const { acceleration, gForce, error } = useAccelerometer();
+  const { gForce } = useAccelerometer();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   useEffect(() => {
     if (!permissionGranted) {
       setIsModalOpen(true);
     }
   }, [permissionGranted]);
-
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -55,8 +52,8 @@ const Dashboard = () => {
         <Grid2 size={6}>
           <Panel>
             <Container>
-              <Compass rotation={orientation.compassHeading}/>
-              <Typography>{(orientation.alpha ?? 0).toFixed(1)} ° {getDirectionLetter(orientation.alpha ?? 0)}</Typography>
+              <Compass rotation={orientation.yaw}/>
+              <Typography>{(orientation.yaw ?? 0).toFixed(1)} ° {getDirectionLetter(orientation.yaw ?? 0)}</Typography>
             </Container>
           </Panel>
         </Grid2>
@@ -76,6 +73,15 @@ const Dashboard = () => {
             </Container>
           </Panel>
         </Grid2>
+        {/* <Grid2 size={6}>
+          <Panel>
+            <Container>
+              <Typography>pitch: {pitch.toFixed(1)}</Typography>
+              <Typography>roll: {roll.toFixed(1)}</Typography>
+              <Typography>orientation.yaw: {orientation.yaw.toFixed(1)}</Typography>
+            </Container>
+          </Panel>
+        </Grid2> */}
       </Grid2>
 
       {!permissionGranted && (

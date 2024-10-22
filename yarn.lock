@@ -3232,11 +3232,6 @@ react-dom@^18.3.1:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
 
-react-geolocated@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/react-geolocated/-/react-geolocated-4.2.0.tgz#1038d0d923f88c5abd1a62311d9e2a20f98720f9"
-  integrity sha512-WmSlP54QE1t/h15G4NkxrxOQPHBRpvixNp9y7DER/L7n5wZMHhWzrx+umzhjOkOoGr+sBQg+DEO4t9GrrxVomw==
-
 react-is@^16.13.1, react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -3261,11 +3256,6 @@ react-transition-group@^4.4.5:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
-
-react-webcam@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/react-webcam/-/react-webcam-7.2.0.tgz#64141c4c7bdd3e956620500187fa3fcc77e1fd49"
-  integrity sha512-xkrzYPqa1ag2DP+2Q/kLKBmCIfEx49bVdgCCCcZf88oF+0NPEbkwYk3/s/C7Zy0mhM8k+hpdNkBLzxg8H0aWcg==
 
 react@^18.3.1:
   version "18.3.1"
